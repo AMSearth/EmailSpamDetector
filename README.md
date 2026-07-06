@@ -7,6 +7,7 @@ A simple and practical email spam detection web application built with FastAPI, 
 - Detects spam vs. ham from email text input
 - Uses a Random Forest model for training and prediction
 - Provides a web interface for easy testing
+- Renders the frontend using Jinja2 templates
 - Includes a REST API with interactive documentation
 - Implements rate limiting using SlowAPI to protect the API
 - Free and open source
@@ -83,6 +84,12 @@ pip install -r requirements.txt
 ```
 
 or with Poetry/uv if preferred via the project configuration.
+
+## Live Deployment
+
+The project is live at:
+
+https://emailspamdetector.fastapicloud.dev/
 
 ## Run the Application
 
