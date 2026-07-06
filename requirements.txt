@@ -1,3 +1,5 @@
 fastapi[standard]
 scikit-learn
 joblib
+httpx2
+jinja2

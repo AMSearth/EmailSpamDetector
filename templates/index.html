@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mail Scanner: Spam Detection</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600&family=Inter:wght@400;500;600;700&display=swap">
+    <link rel="stylesheet" href="/static/style.css">
+</head>
+<body>
+    <div class="app">
+        <header class="app__chrome">
+            <div class="chrome__dots" aria-hidden="true">
+                <span></span><span></span><span></span>
+            </div>
+            <div class="chrome__title">MAIL_SCANNER<span class="chrome__cursor">_</span></div>
+            <div class="chrome__status" id="statusPill">STANDBY</div>
+        </header>
+
+        <main class="app__panes">
+            <section class="pane pane--input">
+                <div class="pane__head">
+                    <p class="eyebrow">Email threat analysis</p>
+                    <h1>Paste a message to scan it for spam signals.</h1>
+                </div>
+
+                <form id="spamForm">
+                    <div class="field-row">
+                        <label class="field-label" for="emailText">Message body</label>
+                        <span class="field-hint">Full text, headers optional</span>
+                    </div>
+                    <textarea
+                        id="emailText"
+                        placeholder="Dear user, you have won a $1,000,000 gift card. Click here to claim your prize before it expires..."
+                        required
+                    ></textarea>
+                    <button type="submit" id="submitBtn">
+                        <span class="btn-label">Run scan</span>
+                        <span class="btn-spinner" aria-hidden="true"></span>
+                    </button>
+                </form>
+            </section>
+
+            <div class="divider" aria-hidden="true"></div>
+
+            <section class="pane pane--result">
+                <div id="idleState" class="idle">
+                    <div class="radar" aria-hidden="true">
+                        <span class="radar__ring"></span>
+                        <span class="radar__ring"></span>
+                        <span class="radar__dot"></span>
+                    </div>
+                    <p class="idle__title">Awaiting input</p>
+                    <p class="idle__sub">Results will appear here once you run a scan.</p>
+                </div>
+
+                <div id="resultBox" class="hidden result" aria-live="polite">
+                    <h2 id="predictionText"></h2>
+                    <p id="confidenceText"></p>
+                    <div class="meter">
+                        <div class="meter__track">
+                            <div class="meter__fill" id="meterFill"></div>
+                            <div class="meter__needle" id="meterNeedle"></div>
+                        </div>
+                        <div class="meter__scale">
+                            <span>Safe</span>
+                            <span>Spam</span>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </main>
+
+        <footer class="app__footer">
+            <span>Model runs against your submitted text, nothing is stored.</span>
+            <span>Developer: Aditya Manoj Shinde</span>
+        </footer>
+    </div>
+
+    <script src="/static/script.js"></script>
+</body>
+</html>
